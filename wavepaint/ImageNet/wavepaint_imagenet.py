@@ -237,6 +237,7 @@ while counter < 5:
 			torch.save(model.state_dict(), PATH)
 			prev_loss = Final_losses["LPIPS"]
 			print("saving chkpoint")
+			counter = 0
 
 	epoch += 1
 
@@ -310,6 +311,7 @@ while counter < 5:
 			torch.save(model.state_dict(), PATH)
 			prev_loss = Final_losses["LPIPS"]
 			print("saving chkpoint")
+			counter = 0
 
 	epoch += 1
 
