@@ -3,7 +3,7 @@
 import torch
 import torch.nn as nn
 import wavemix
-from wavemix import Level1Waveblock
+from wavemix import Level1Waveblock, Level2Waveblock, Level31Waveblock
     
 
 class WaveMixModule(nn.Module):
@@ -14,6 +14,7 @@ class WaveMixModule(nn.Module):
         mult = 2,
         ff_channel = 16,
         final_dim = 16,
+        level = 1,
         dropout = 0.,
     ):
         super().__init__()
@@ -24,8 +25,17 @@ class WaveMixModule(nn.Module):
         )
 
         self.layers = nn.ModuleList([])
-        for _ in range(depth):
-            self.layers.append(Level1Waveblock(mult = mult, ff_channel = ff_channel, final_dim = final_dim, dropout = dropout))
+        if level == 1:
+            for _ in range(depth):
+                self.layers.append(Level1Waveblock(mult = mult, ff_channel = ff_channel, final_dim = final_dim, dropout = dropout))
+        
+        if level == 2:
+            for _ in range(depth):
+                self.layers.append(Level2Waveblock(mult = mult, ff_channel = ff_channel, final_dim = final_dim, dropout = dropout))
+
+        if level == 3:
+            for _ in range(depth):
+                self.layers.append(Level31Waveblock(mult = mult, ff_channel = ff_channel, final_dim = final_dim, dropout = dropout))
 
         self.depthconv = nn.Sequential(
             nn.Conv2d(final_dim, final_dim, 5, groups=final_dim, padding="same"),
