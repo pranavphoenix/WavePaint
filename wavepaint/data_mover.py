@@ -3,14 +3,16 @@ from tqdm import tqdm
 import shutil
 import numpy as np
 
-source_folder = "/workspace/ImageNet/224Val"
+## Code to transfer the images in separete class folders into one folder
+
+source_folder = "path/to/separate/class/set/"
 
 sub_folders=os.listdir(source_folder)
 # print(sub_folders[0])
 
-to_folder = "/workspace/Darshan/lama/ImageNet"
+to_folder = "path/to/new/folder/"
 
-options=["valfolder"]
+options=["val_folder"]
 
 
 for subfolder in tqdm(sub_folders):
