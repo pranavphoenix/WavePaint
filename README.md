@@ -7,6 +7,8 @@
 
 [[arXiv](https://arxiv.org/abs/2307.00407v1)]
 
+We have used LaMa training and inference codes for our experiments.
+
 ## Citation
 If you found this code helpful, please consider citing: 
 ```
