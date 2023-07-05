@@ -19,6 +19,10 @@ Medium Mask
 
 Thin Mask
 
+Model Architecture
+
+![image](https://github.com/pranavphoenix/WavePaint/assets/15833382/5f414f26-44f7-4a90-83d8-a35500e21f20)
+
 We have used LaMa training and inference codes for our experiments.
 
 ## Citation
