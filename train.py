@@ -22,9 +22,9 @@ device 				= torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 loss_fn 			= lpips.LPIPS(net='alex').to(device)
 
 
-if str(args.mask) == 'thick':
-    TrainDataLoaderConfig={'indir': 'celebhq/train_256',
-                        'out_size': 256, 
+if str(args.mask) == 'thick': 	# configurations for using thick mask
+    TrainDataLoaderConfig={'indir': 'celebhq/train_256',  	#path to input directory with training images
+                        'out_size': 256, 			#output image size			
                         'mask_gen_kwargs': 
                                             {'irregular_proba': 1,
                                             'irregular_kwargs': 
@@ -48,7 +48,7 @@ if str(args.mask) == 'thick':
                                                  'num_workers': 4}
                         } 
 	
-else:
+else:		#configurations for using medium mask
 	TrainDataLoaderConfig={'indir': 'celebhq/train_256',
                         'out_size': 256, 
                         'mask_gen_kwargs': 
@@ -78,7 +78,7 @@ else:
 train_loader = make_default_train_dataloader(**TrainDataLoaderConfig)
 
 ValDataLoaderConfig = {	'dataloader_kwargs': {	'batch_size'	: int(TrainBatchSize/2), 
-						  						'shuffle'		: False, 
+						  						'shuffle'	: False, 
 												'num_workers'	: 4}}
 
 eval_loader	= make_default_val_dataloader( indir	= "celebhq/val_256/random_medium_256/",
@@ -94,7 +94,7 @@ print(len(eval_loader)*int(TrainBatchSize/2))
 base_path="WavePaint_"
 
 NUM_MODULES 	= 8
-NUM_BLOCKS		= 4 
+NUM_BLOCKS	= 4 
 MODEL_EMBEDDING	= 128 
 
 
