@@ -46,6 +46,39 @@ Provide the path to save model pth file, folder containing validation images gro
 evaluate.py <path/to/Ground/truth/images> <path/to/model/output> <path/to/save/metrics.csv>
 ```
 
+As its written now, the code expects a folder structure in the form:
+```css
+workspace/
+├── celebhq/
+│   ├── train_256/
+│   │   ├── 0.jpg
+│   │   └── 1.jpg ...
+│   └── val_256/
+│       ├── random_medium_256/
+│       │   ├── 0.png
+│       │   └── 0_mask000.png ...
+│       ├── random_thick_256/
+│       │   ├── 0.png
+│       │   └── 0_mask000.png ...
+│        ── random_thin_256/
+│           ├── 0.png
+│           └── 0_mask000.png ...
+├── generated_images/
+│   ├── image1.png
+│   └── image2.png...
+├── metrics/
+│   ├── alex.pth
+│   ├── squeeze.pth
+│   ├── vgg.pth
+│   └── metrics.csv
+└── output/
+    ├── masked/
+    │   ├── img1.png
+    │   └── img2.png ...
+    └── output/
+        ├── img1.png
+        └── img2.png...
+```
 We have used LaMa training and inference codes for our experiments from https://github.com/advimman/lama
 
 
