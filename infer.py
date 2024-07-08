@@ -7,34 +7,32 @@ from datasets import make_default_val_dataset
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-###########################################################################################################################################
-
 base_path="WavePaint_"
 
 NUM_MODULES 	= 8
-NUM_BLOCKS		= 4 
+NUM_BLOCKS	= 4 
 MODEL_EMBEDDING	= 128 
 
 
 model = WavePaint(
-	num_modules			= NUM_MODULES,
+	num_modules		= NUM_MODULES,
 	blocks_per_module 	= NUM_BLOCKS,
-	mult 				= 4,
-	ff_channel 			= MODEL_EMBEDDING,
-	final_dim 			= MODEL_EMBEDDING,
-	dropout 			= 0.5
+	mult 			= 4,
+	ff_channel 		= MODEL_EMBEDDING,
+	final_dim 		= MODEL_EMBEDDING,
+	dropout 		= 0.5
 ).to(device)
 
-PATH = base_path + '_blocks'+str(NUM_BLOCKS)+'_dim'+str(MODEL_EMBEDDING)+'_modules'+str(NUM_MODULES)+'_celebhq256.pth'
+PATH = base_path + '_blocks'+str(NUM_BLOCKS)+'_dim'+str(MODEL_EMBEDDING)+'_modules'+str(NUM_MODULES)+'_celebhq256.pth' #path to saved weights
 
 print(PATH)
 model.load_state_dict(torch.load(PATH))
 print("LOADED GEN WEIGHTS!!!")
 model.eval()
 
-indir = "/workspace/celebhq/val_256/random_thin_256/"
-outdir = "/workspace/output/output/"
-outdir2 = "/workspace/output/masked/"
+indir = "/workspace/celebhq/val_256/random_thin_256/"   # the images with thin, thick and medium masks already in val_256 folder
+outdir = "/workspace/output/output/" #path to save model outputs
+outdir2 = "/workspace/output/masked/" #path to save masked images
 out_ext = ".png"
 
 dataset = make_default_val_dataset(indir, **{'kind': 'default', 'img_suffix': '.png', 'pad_out_to_modulo': 8})
