@@ -49,6 +49,14 @@ evaluate.py <path/to/Ground/truth/images> <path/to/model/output> <path/to/save/m
 As its written now, the code expects a folder structure in the form:
 ```css
 workspace/
+├── train.py
+├── config.py
+├── datasets.py
+├── evaluate.py
+├── infer.py
+├── masks.py
+├── model.py
+├── scores.py
 ├── celebhq/
 │   ├── train_256/
 │   │   ├── 0.jpg
