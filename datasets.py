@@ -7,7 +7,7 @@ import PIL.Image as Image
 
 class InpaintingTrainDataset(Dataset):
     def __init__(self, indir, mask_generator, transform):
-        self.in_files = list(glob.glob(os.path.join(indir, '**', '*.jpg'), recursive=True))
+        self.in_files = list(glob.glob(os.path.join(indir, '**', '*.jpg'), recursive=True)) # change the extension depending on the image type
         # self.in_files = list(glob.glob(os.path.join(indir, '**', '*.JPEG'), recursive=True))
         self.mask_generator = mask_generator
         self.transform = transform
