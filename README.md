@@ -23,7 +23,32 @@ Model Architecture
 
 ![image](https://github.com/pranavphoenix/WavePaint/assets/15833382/5f414f26-44f7-4a90-83d8-a35500e21f20)
 
-We have used LaMa training and inference codes for our experiments.
+
+### Training using train.py
+
+Change the path to input directory containing images. Set the output image size as required. Modify the model parameters and training configurations. Use can use either medium or thick masks.
+
+```bash
+python train.py -batch <batch-size> -mask <mask-size>
+```
+
+### Running Inference using infer.py
+Provide the path to save model pth file, folder containing validation images ground truth and masks, folder to which model outputs to be saved, folder to which masked images to be saved 
+
+```bash
+python infer.py 
+```
+
+### Calculating performance metrics using evaluate.py
+Provide the path to save model pth file, folder containing validation images ground truth and masks, folder to which model outputs to be saved, folder to which masked images to be saved 
+
+```bash
+evaluate.py <path/to/Ground/truth/images> <path/to/model/output> <path/to/save/metrics.csv>
+```
+
+We have used LaMa training and inference codes for our experiments from https://github.com/advimman/lama
+
+
 
 ## Citation
 If you found this code helpful, please consider citing: 
