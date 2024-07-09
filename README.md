@@ -88,6 +88,7 @@ workspace/
         └── img2.png...
 ```
 We have used LaMa training and inference codes for our experiments from https://github.com/advimman/lama
+The scripts to generate various masks for validation set is also available there.
 
 
 
