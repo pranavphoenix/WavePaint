@@ -43,7 +43,7 @@ python infer.py
 Provide the path to save model pth file, folder containing validation images ground truth and masks, folder to which model outputs to be saved, folder to which masked images to be saved 
 
 ```bash
-evaluate.py <path/to/Ground/truth/images> <path/to/model/output> <path/to/save/metrics.csv>
+python evaluate.py <path/to/Ground/truth/images> <path/to/model/output> <path/to/save/metrics.csv>
 ```
 
 As its written now, the code expects a folder structure in the form:
