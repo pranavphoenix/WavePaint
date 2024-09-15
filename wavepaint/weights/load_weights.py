@@ -3,7 +3,7 @@ import torch
 model = WavePaint(
 	num_modules	  = 8,
 	blocks_per_module = 4,
-	mult 		  = 4,
+	mult 		  = 4, #try 2 also if weights cannot load
 	ff_channel 	  = 128,
 	final_dim 	  = 128,
 	dropout 	  = 0.5
